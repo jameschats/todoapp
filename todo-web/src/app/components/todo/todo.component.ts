@@ -27,7 +27,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class TodoComponent implements OnInit {
     todos: TodoItem[] = [];
-    newTodoTitle = '';
+    newTodoTitle = ''; 
 
     constructor(private todoService: TodoService) {}
 
