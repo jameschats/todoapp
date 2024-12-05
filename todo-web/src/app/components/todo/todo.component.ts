@@ -18,17 +18,16 @@ import { Component, OnInit } from '@angular/core';
 import { TodoItem, TodoService } from '../../services/todo.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 @Component({
     selector: 'app-todo',
     templateUrl: './todo.component.html',
     styleUrls: ['./todo.component.css'],
     standalone: true, // Mark as standalone
-    imports: [CommonModule, FormsModule,HttpClientModule], // Import FormsModule here
+    imports: [CommonModule, FormsModule], // Import FormsModule here
 })
 export class TodoComponent implements OnInit {
     todos: TodoItem[] = [];
-    newTodoTitle = '';
+    newTodoTitle = ''; 
 
     constructor(private todoService: TodoService) {}
 
