@@ -1,0 +1,53 @@
+<div class="container mt-4">
+  <div class="card">
+      <div class="card-header bg-primary text-white">
+          <h1 class="mb-0">To-Do List</h1>
+      </div>
+      <div class="card-body">
+          <!-- Add New Task -->
+          <div class="input-group mb-3">
+              <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="newTodoTitle"
+                  placeholder="Enter a new task"
+              />
+              <button class="btn btn-primary" (click)="addTodo()">Add</button>
+          </div>
+
+          <!-- Task List -->
+          <ul class="list-group">
+              <li
+                  *ngFor="let todo of todos"
+                  class="list-group-item d-flex justify-content-between align-items-center"
+              >
+                  <!-- Checkbox and Title -->
+                  <div class="form-check">
+                      <input
+                          class="form-check-input"
+                          type="checkbox"
+                          [checked]="todo.isCompleted"
+                          (change)="toggleComplete(todo)"
+                          id="todo-{{ todo.id }}"
+                      />
+                      <label
+                          class="form-check-label"
+                          [for]="'todo-' + todo.id"
+                          [ngStyle]="{ textDecoration: todo.isCompleted ? 'line-through' : 'none' }"
+                      >
+                          {{ todo.title }}
+                      </label>
+                  </div>
+
+                  <!-- Delete Button -->
+                  <button
+                      class="btn btn-sm btn-danger"
+                      (click)="deleteTodo(todo.id!)"
+                  >
+                      Delete
+                  </button>
+              </li>
+          </ul>
+      </div>
+  </div>
+</div>
